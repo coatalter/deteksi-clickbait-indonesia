@@ -1,9 +1,8 @@
+
 import os
 import re
 import joblib
 import numpy as np
-import matplotlib
-matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import gradio as gr
 import tensorflow as tf
@@ -104,7 +103,9 @@ def clean_text(text, keep_punct=True):
 # ============================================================
 
 BASE_DIR = os.path.dirname(
-    os.path.abspath(__file__)
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
 )
 
 MODEL_DIR = os.path.join(
@@ -430,9 +431,4 @@ with gr.Blocks(
 
 if __name__ == "__main__":
 
-    port = int(os.environ.get("PORT", 7860))
-
-    demo.launch(
-        server_name="0.0.0.0",
-        server_port=port
-    )
+    demo.launch()
